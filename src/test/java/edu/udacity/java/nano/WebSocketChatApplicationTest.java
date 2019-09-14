@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultHandler;
+
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -33,4 +35,12 @@ public class WebSocketChatApplicationTest {
                 .andExpect(content().string(containsString("CLEAR")))
                 .andExpect(view().name("/chat"));
     }
+
+    @Test
+    public void shouldDisplayUsername() throws Exception {
+        this.mockMvc.perform(get("/index?username=Shannon")).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Shannon")));
+    }
+
+
 }
