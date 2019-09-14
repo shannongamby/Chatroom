@@ -31,9 +31,9 @@ public class WebSocketChatApplication {
      * Chatroom Page
      */
     @GetMapping("/index")
-    public ModelAndView index(String username, HttpServletRequest request) throws UnknownHostException {
-        ModelAndView viewModel = new ModelAndView("/chat").addObject("username", username);
-        viewModel.addObject("webSocketUrl", "ws://" + request.getLocalName() + ":" + request.getServerPort() + "/chat");
-        return viewModel;
+    public ModelAndView index(String username, HttpServletRequest request) {
+        return new ModelAndView("/chat")
+                .addObject("username", username)
+                .addObject("webSocketUrl", "ws://" + request.getLocalName() + ":" + request.getServerPort() + "/chat");
     }
 }
