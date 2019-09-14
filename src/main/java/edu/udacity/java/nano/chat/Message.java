@@ -26,6 +26,18 @@ public class Message {
         return JSON.toJSONString(new Message(type, username, msg, onlineCount));
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getUsername() {
         return username;
     }
