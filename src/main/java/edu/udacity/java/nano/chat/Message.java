@@ -2,13 +2,7 @@ package edu.udacity.java.nano.chat;
 
 import com.alibaba.fastjson.JSON;
 
-/**
- * WebSocket message model
- */
 public class Message {
-    public static final String ENTER = "ENTER";
-    public static final String SPEAK = "SPEAK";
-    public static final String QUIT = "QUIT";
     private String type;
     private String username;
     private String msg;
