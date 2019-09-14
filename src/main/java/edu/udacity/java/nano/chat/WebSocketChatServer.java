@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-//import static edu.udacity.java.nano.chat.Message.*;
 import static edu.udacity.java.nano.chat.Type.*;
 
 @Component
