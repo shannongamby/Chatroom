@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,6 +24,7 @@ public class WebSocketChatApplication {
 
     @GetMapping("index")
     public ModelAndView index(String username, HttpServletRequest request) {
+        if (StringUtils.isEmptyOrWhitespace(username)) { username = "Anon"; }
         return new ModelAndView("chat")
                 .addObject("username", username)
                 .addObject("webSocketUrl", "ws://" + request.getLocalName() + ":" + request.getServerPort() + "/chat");

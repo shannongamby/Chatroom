@@ -41,5 +41,11 @@ public class WebSocketChatApplicationTest {
                 .andExpect(content().string(containsString("Shannon")));
     }
 
+    @Test
+    public void shouldDefaultUsernameToAnonIfNoneGiven() throws Exception {
+        this.mockMvc.perform(get("/index?username=")).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Anon")));
+    }
+
 
 }
