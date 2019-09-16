@@ -18,12 +18,12 @@ public class WebSocketChatApplication {
 
     @GetMapping("/")
     public ModelAndView login() {
-        return new ModelAndView("/login");
+        return new ModelAndView("login");
     }
 
-    @GetMapping("/index")
+    @GetMapping("index")
     public ModelAndView index(String username, HttpServletRequest request) {
-        return new ModelAndView("/chat")
+        return new ModelAndView("chat")
                 .addObject("username", username)
                 .addObject("webSocketUrl", "ws://" + request.getLocalName() + ":" + request.getServerPort() + "/chat");
     }

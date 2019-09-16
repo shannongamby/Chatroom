@@ -23,7 +23,7 @@ public class WebSocketChatApplicationTest {
         this.mockMvc.perform(get("/")).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Chat Room")))
                 .andExpect(content().string(containsString("Login")))
-                .andExpect(view().name("/login"));
+                .andExpect(view().name("login"));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class WebSocketChatApplicationTest {
                 .andExpect(content().string(containsString("Welcome")))
                 .andExpect(content().string(containsString("SEND")))
                 .andExpect(content().string(containsString("CLEAR")))
-                .andExpect(view().name("/chat"));
+                .andExpect(view().name("chat"));
     }
 
     @Test
